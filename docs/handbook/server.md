@@ -2,7 +2,7 @@
 <img src="./images/server/平台-后台使用流程.png"/>
 
 # 创建项目
-<img src="../images/server/create_project.png" style="border: 1px solid #f0ebeb;"/>
+<img src="./images/server/create_project.png" style="border: 1px solid #f0ebeb;"/>
 
 | 属性       | 描述                           | 必填 | 注意点                     |
 | ---------- | ------------------------------ | ---- | -------------------------- |
@@ -18,7 +18,7 @@
 # 模板
 
 用于数据模型生成代码，设置每个节点的模板内容，系统根据模板生成相应的java代码。
-<img src="../images/server/create_template.png" style="border: 1px solid #f0ebeb;"/>
+<img src="./images/server/create_template.png" style="border: 1px solid #f0ebeb;"/>
 
 | 属性     | 描述                                                  | 必填 | 注意点            |
 | -------- | ----------------------------------------------------- | ---- | ----------------- |
@@ -33,7 +33,7 @@
 # 计划
 
 用于数据模型生成文件，设置数据模型要生成的节点，系统根据计划去生成java相关文件。
-<img src="../images/server/create_plan.png" style="border: 1px solid #f0ebeb;"/>
+<img src="./images/server/create_plan.png" style="border: 1px solid #f0ebeb;"/>
 
 | 属性     | 描述               | 必填 | 注意点            |
 | -------- | ------------------ | ---- | ----------------- |
@@ -42,7 +42,7 @@
 | 节点配置 | [参照节点配置表]() |      |                   |
 
 ### 节点配置表
-<img src="../images/server/create_plan_node.png" style="border: 1px solid #f0ebeb;"/>
+<img src="./images/server/create_plan_node.png" style="border: 1px solid #f0ebeb;"/>
 
 | 属性     | 描述                                                  | 必填 | 注意点           |
 | -------- | ----------------------------------------------------- | ---- | ---------------- |
@@ -69,7 +69,7 @@
 
 注：只能连接系统部署的所在服务器能访问范围内的数据库。
 
-<img src="../images/server/create_datasource.png" style="border: 1px solid #f0ebeb;"/>
+<img src="./images/server/create_datasource.png" style="border: 1px solid #f0ebeb;"/>
 
 | 属性       | 描述                         | 必填 | 注意点     |
 | ---------- | ---------------------------- | ---- | ---------- |
@@ -85,7 +85,7 @@
 
 对数据库的表进行新建、修改、删除操作。
 
-<img src="../images/server/create_table.png"/>
+<img src="./images/server/create_table.png"/>
 
 | 属性   | 描述       | 必填 | 注意点 |
 | ------ | ---------- | ---- | ------ |
@@ -118,7 +118,7 @@
 
 类似文件的作用。
 
-<img src="../images/server/create_module.png" style="border: 1px solid #f0ebeb;"/>
+<img src="./images/server/create_module.png" style="border: 1px solid #f0ebeb;"/>
 
 | 属性 | 描述     | 必填 | 注意点       |
 | ---- | -------- | ---- | ------------ |
@@ -130,7 +130,7 @@
 # 数据模型
 
 数据模型是整个系统的核心，上面所有的功能都是为了数据模型的生成而准备的。通过数据表、模板和计划3方协助来完成。
-<img src="../images/server/create_datamodel.png" style="border: 1px solid #f0ebeb;"/>
+<img src="./images/server/create_datamodel.png" style="border: 1px solid #f0ebeb;"/>
 
 | 属性   | 描述                                                         | 必填 | 注意点       |
 | ------ | ------------------------------------------------------------ | ---- | ------------ |
@@ -155,8 +155,8 @@
 
 实体类
 
-<img src="../images/server/model.png"/>
-<img src="../images/server/model_s.png"/>
+<img src="./images/server/model.png"/>
+<img src="./images/server/model_s.png"/>
 
 【保存】：只是更改实体类文件
 
@@ -166,66 +166,66 @@
 
 mybatis的函数文件
 
-<img src="../images/server/example.png"/>
-<img src="../images/server/example_s.png"/>
+<img src="./images/server/example.png"/>
+<img src="./images/server/example_s.png"/>
 
 新增example方法
 
 <div style="width: 947px;border: 1px solid #f0ebeb;">
-	<img src="../images/server/add_method_1.png"/>
-	<img src="../images/server/add_method_2.png"/>
+	<img src="./images/server/add_method_1.png"/>
+	<img src="./images/server/add_method_2.png"/>
 </div>
 
 #### dao
 
 数据库映射接口
 
-<img src="../images/server/dao.png"/>
-<img src="../images/server/dao_s.png"/>
+<img src="./images/server/dao.png"/>
+<img src="./images/server/dao_s.png"/>
 
 新增dao接口
 
-<img src="../images/server/add_interface.png" style="border: 1px solid #f0ebeb;"/>
+<img src="./images/server/add_interface.png" style="border: 1px solid #f0ebeb;"/>
 
 #### mapper
 
 Mybatis的映射文件
-<img src="../images/server/mapper_1.png"/>
-<img src="../images/server/mapper_2.png"/>
-<img src="../images/server/mapper_s.png"/>
+<img src="./images/server/mapper_1.png"/>
+<img src="./images/server/mapper_2.png"/>
+<img src="./images/server/mapper_s.png"/>
 
 #### service
 
 业务接口
 
-<img src="../images/server/service.png"/>
-<img src="../images/server/service_s.png"/>
+<img src="./images/server/service.png"/>
+<img src="./images/server/service_s.png"/>
 
 新增service接口
 
-<img src="../images/server/add_interface.png" style="border: 1px solid #f0ebeb;"/>
+<img src="./images/server/add_interface.png" style="border: 1px solid #f0ebeb;"/>
 
 #### serviceImpl
 
 业务接口实现
 
-<img src="../images/server/serviceImpl.png"/>
-<img src="../images/server/serviceImpl_s.png"/>
+<img src="./images/server/serviceImpl.png"/>
+<img src="./images/server/serviceImpl_s.png"/>
 
 新增serviceImpl方法
 <div style="width: 947px;border: 1px solid #f0ebeb;">
-	<img src="../images/server/add_method_1.png"/>
-	<img src="../images/server/add_method_2.png"/>
+	<img src="./images/server/add_method_1.png"/>
+	<img src="./images/server/add_method_2.png"/>
 </div>
 
 #### controller
-<img src="../images/server/controller.png"/>
-<img src="../images/server/controller_s.png"/>
+<img src="./images/server/controller.png"/>
+<img src="./images/server/controller_s.png"/>
 
 新增controller方法
 <div style="width: 947px;border: 1px solid #f0ebeb;">
-	<img src="../images/server/add_method_c_1.png"/>
-	<img src="../images/server/add_method_c_2.png"/>
+	<img src="./images/server/add_method_c_1.png"/>
+	<img src="./images/server/add_method_c_2.png"/>
 </div>
 
 ###### 接口测试
@@ -237,7 +237,7 @@ Mybatis的映射文件
 ## 个人配置
 
 个人配置可以设置某个开发人员的独有配置，开发人员第一次进入项目前会先设置个人配置，之后使用过程中可以随时进行修改。
-<img src="../images/server/person_config.png" style="border: 1px solid #f0ebeb;"/>
+<img src="./images/server/person_config.png" style="border: 1px solid #f0ebeb;"/>
 
 | 属性         | 描述                                                         | 必填 | 注意点 |
 | ------------ | ------------------------------------------------------------ | ---- | ------ |
