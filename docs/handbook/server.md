@@ -1,5 +1,5 @@
 # 使用步骤
-<img src="../images/server/平台-后台使用流程.png"/>
+<img src="./images/server/平台-后台使用流程.png"/>
 
 # 创建项目
 <img src="../images/server/create_project.png" style="border: 1px solid #f0ebeb;"/>
