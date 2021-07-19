@@ -6,11 +6,11 @@
 
 项目文件结构管理
 
-![数据模型](.\images\web\数据模型.png)
+![数据模型](..\images\web\数据模型.png)
 
 #### 工具栏
 
-![数据模型工具栏](.\images\web\数据模型工具栏.png)
+![数据模型工具栏](..\images\web\数据模型工具栏.png)
 
 ##### 同步代码到本地
 
@@ -34,13 +34,13 @@
 
 #### 右击菜单
 
-![数据模型右击菜单](.\images\web\数据模型右击菜单.png)
+![数据模型右击菜单](..\images\web\数据模型右击菜单.png)
 
 ##### 新建节点
 
 新建一个节点（新建文件）
 
-![创建节点](.\images\web\创建节点.png)
+![创建节点](..\images\web\创建节点.png)
 
 | 属性     | 描述           | 值                                                 |
 | -------- | -------------- | -------------------------------------------------- |
@@ -59,7 +59,7 @@
 
 创建一个用于编写接口的文件
 
-![创建接口](.\images\web\创建接口.png)
+![创建接口](..\images\web\创建接口.png)
 
 
 
@@ -91,19 +91,19 @@
 
 页面布局分为3块，左:“组件选择区”、中:“设计页面”、右:“属性栏”
 
-![设计页面](./images/web/design.png)
+![设计页面](..\images\web\design.png)
 
 #### 1. 组件选择区
 ***
 展示平台现有的组件，可通过拖拽的方式放入设计页面进行页面开发
 
-![components](.\images\web\components.png)
+![components](..\images\web\components.png)
 
 #### 2. 设计页面
 ***
 页面设计的主要操作区
 
-![view](.\images\web\view.png)
+![view](..\images\web\view.png)
 
 ------
 
@@ -113,7 +113,7 @@
 
 用于展示和编辑组件属性
 
-![properties](.\images\web\properties.png)
+![properties](..\images\web\properties.png)
 
 
 
