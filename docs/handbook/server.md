@@ -1,7 +1,7 @@
 # 使用步骤
 <img src="./images/server/平台-后台使用流程.png"/>
 
-# 创建项目
+# 创建项目	
 <img src="./images/server/create_project.png" style="border: 1px solid #f0ebeb;"/>
 
 | 属性       | 描述                           | 必填 | 注意点                     |
@@ -12,7 +12,6 @@
 | 持久层框架 | 目前只支持Mybatis              | 是   |                            |
 | 插件       | 代码中用到的第三方的辅助工具   | 否   |                            |
 | 默认计划   | 项目中默认启用的计划           | 是   | 创建数据模型时可以手动更改 |
-
 
 
 # 模板
@@ -41,7 +40,7 @@
 | 作用框架 | 用于哪个持久层框架 | 是   | 目前只支持Mybatis |
 | 节点配置 | [参照节点配置表]() |      |                   |
 
-### 节点配置表
+## 节点配置表
 <img src="./images/server/create_plan_node.png" style="border: 1px solid #f0ebeb;"/>
 
 | 属性     | 描述                                                  | 必填 | 注意点           |
@@ -257,3 +256,40 @@ Mybatis的映射文件
 ## 重新初始化项目
 
 可以重新创建系统自带的项目
+
+# 打开项目前进行的配置
+
+如果使用非平台创建项目请忽略以下步骤
+
+## 初始化项目的数据源
+
+进入Neves_client安装的目录下面，​双击ProjectDBInitc初始化项目的数据源头
+
+![登录页](../images/install/server/intProject.png)
+
+## redis nacos minio的安装
+
+redis nacos minio在Neves_client\env安装的目录下面
+若使用平台创建的项目请解压redis nacos minio软件进行使用，nacos作为注册中心使用，minio作为文件服务器使用
+
+## 项目中配置文件的配置
+
+### system-auth层
+
+配置项目数据源例如中配置
+	
+![项目数据源](../images/server/项目数据源.png)
+
+### system-business层
+
+配置的数据源是创建创建后台项目时你自己添加的数据源 
+
+### system-file层
+
+如果本地开发可不进行修改
+
+### system-gateway层
+
+前台请求到网关路由层，根据服务名称和接口请求路径自动转发到各自的服务接口
+
+![项目数据源](../images/server/网关路由.png)
