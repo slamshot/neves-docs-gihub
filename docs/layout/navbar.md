@@ -1,4 +1,5 @@
 * [安装](/)
-* [前端](/handbook/web_vue.md)
-* [后端](/handbook/server.md)
+* [前端设计器](/handbook/web_vue.md)
+* [后端设计器](/handbook/server.md)
+* [项目手册](/handbook/project.md)
 * [流程](/handbook/flow.md)

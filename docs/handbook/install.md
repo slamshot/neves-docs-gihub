@@ -4,11 +4,11 @@
 
 ### 1.1. 安装程序
 
-​双击neves.exe![安装程序](../images/install/server/0.png)文件进行安装
+​双击neves.exe![安装程序](./images/install/server/0.png)文件进行安装
 
 ​
 
-![安装界面](../images/install/server/1.png)
+![安装界面](./images/install/server/1.png)
 
 ​安装界面
 
@@ -30,7 +30,7 @@
 
 
 
-![安装程序](../images/install/server/5.png)
+![安装程序](./images/install/server/5.png)
 
 ​初始化界面
 
@@ -40,7 +40,7 @@
 
 ​  对设计器配置进行初始配置，其中文件服务地址为内置minio，如需修改账号密码请到安装目录下的minio目录中参考minio官方文档进行修改
 
-​![设计器配置](../images/install/server/5.png)
+​![设计器配置](./images/install/server/5.png)
 
 
 
@@ -48,7 +48,7 @@
 
 ​ 对流程服务进行初始配置
 
-![设计器配置](../images/install/server/6.png)
+![设计器配置](./images/install/server/6.png)
 
 
 
@@ -56,7 +56,7 @@
 
 ​ 配置浏览器访问ip及端口
 
-![设计器配置](../images/install/server/7.png)
+![设计器配置](./images/install/server/7.png)
 
 
 
@@ -66,7 +66,7 @@
 
 ​初始账号：admin  密码：123456
 
-![登录页](../images/web/login.png)
+![登录页](./images/web/login.png)
 
 ​
 
@@ -76,11 +76,11 @@
 
 ### 1.1. 安装程序
 
-​双击winserver.exe ![登录页](../images/install/client/0.png)文件进行安装
+​双击winserver.exe ![登录页](./images/install/client/0.png)文件进行安装
 
 ​
 
-![安装界面](../images/install/client/1.png)
+![安装界面](./images/install/client/1.png)
 
 ​安装界面
 
@@ -98,7 +98,7 @@
 
 ​  
 
-​![配置界面](../images/install/client/3.png)
+​![配置界面](./images/install/client/3.png)
 
 
 
@@ -106,6 +106,6 @@
 
 ​双击neves_winserver.exe启动服务，等待项目启动，完成后将自动打开登录页面
 
-![登录页](../images/web/login.png)
+![登录页](./images/web/login.png)
 
 
