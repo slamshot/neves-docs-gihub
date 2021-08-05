@@ -59,12 +59,6 @@
 ![流程表单](..\images\addproject\流程表单.png)
 ![流程表单设计](..\images\addproject\流程表单设计.png)
 
-项目配置表单路由
-
-![配置路由](..\images\project\配置路由.png)
-
-![流程表单设计](..\images\addproject\流程表单设计.png)
-
 ### 1.2.3创建前端接口
 
 右击菜单页创建接口，选取后台项目中个人创建的数据模型自动生成接口信息，接口前缀：business。
@@ -231,17 +225,19 @@ del(row) {
 ![更换列表api](..\images\project\更换列表api.png)
 
 ### 1.3.4表单
-#### 1.3.3.1配置表单路由
+#### 1.3.4.1配置表单路由
 
 ![配置表单路由](..\images\project\配置表单路由.png)
 
-#### 1.3.3.2表单引入api
+#### 1.3.4.2表单引入api
 
 ![引入接口](..\images\project\引入api.png)
 
 ## 1.4设计流程页
 
 点击流程进入流程设计
+  
+进入流程设计页显示登录， 初始账户：admin，初始密码：123456
 
 ![流程通道](..\images\project\流程通道.png)
 
@@ -298,7 +294,7 @@ del(row) {
 ![导出按钮](..\images\project\导出按钮.png)
 ![下载模型](..\images\project\下载模型.png)
 
-## 1.5 前端页-流程表单操作
+## 1.5 流程表单
 
 ### 1.5.1流程模型导入发布
 
@@ -308,13 +304,17 @@ del(row) {
 
 ### 1.5.2流程表单修改
 
+同表单类似，添加流程表单路由
+
+![配置路由](..\images\project\配置路由.png)
+
 #### 1.5.2.1引入流程api
 
 ![引入流程api](..\images\project\引入流程api.png)
 
 #### 1.5.2.2表单绑定流程
 
-添加标题字段和新增formId字段
+添加标题字段(按个人需求添加)和新增formId字段
 
 ![新增字段](..\images\project\新增字段.png)
 
@@ -322,20 +322,26 @@ del(row) {
 
 ![绑定主键](..\images\project\绑定主键.png)
 
-businessKey：主键id,message:字段信息,flowKey:模型流程key
+businessKey：主键id
+
+message:流程表单提交过程自动保存的一个信息参数字段，一般为意见审批流程的意见
+
+flowKey:模型流程key
 
 ![修改流程参数](..\images\project\修改流程参数.png)
 
 #### 1.5.2.3接收路由参数
 
-列表传入对应表单数据：表单页类型、表单标题(按个人需求)、表单id
+列表传入对应表单数据：表单页类型、表单标题(按个人需求)、表单id，由周期函数mounted触发接收路由参数getData()方法
 
 ```
- this.pageType = this.$route.query.type;
+  getData(){
+    this.pageType = this.$route.query.type;
       this.title = this.$route.query.title;
       this.formId = this.$route.query.id;
-```
+  }
 
+```
 ![接收路由参数](..\images\project\接收路由参数.png)
 
 #### 1.5.2.4编写任务添加编辑逻辑
@@ -408,7 +414,7 @@ execute(event) {
 
 流程启动：完善启动字段信息启动流程
 
-![流程启动一](..\images\project\流程启动一.png)
+![提交启动一](..\images\project\提交启动一.png)
 
 打开流程表单查看待办管理
 

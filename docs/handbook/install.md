@@ -8,9 +8,9 @@
 
 ​支持 mysql，orcale，sqlserver数据库
 
-## 1.3. redis、nacos、ndoe
+## 1.3. redis、nacos、node
 
-准备好redis、nacos、ndoe 工具在下面下载服务插件安装后的文件目录env文件下有相关软件
+准备好redis、nacos、node 工具在下面下载服务插件安装后的文件目录env文件下有相关软件
 
 注意：若使用平台设计器创建出来的前端项目，请使用提供的env文件下提供的版本的node环境
 
@@ -41,7 +41,7 @@
 
 安装完成后的目录结构
 
-![安装3](./images/install/安装目录.png)
+![服务端目录](./images/install/服务端目录.png)
 
 ## 2.2. 初始化必要数据
 
@@ -127,7 +127,7 @@
 
 安装完成后的目录结构
 
-![安装目录1](./images/install/安装目录1.png)
+![客户端目录](./images/install/客户端目录.png)
 
 
 ## 3.2 初始化必要数据
