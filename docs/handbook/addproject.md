@@ -33,7 +33,6 @@
 | 作用框架 | 用于哪个持久层框架 | 是   | 目前只支持Mybatis |
 | 节点配置 | [参照节点配置表]() |      |                   |
 
-
 6.资源管理：平台菜单管理
 
 7.授权管理：平台菜单授权管理
@@ -45,9 +44,6 @@
 9.项目首页介绍：
 
 ![首页介绍二](..\images\addproject\首页介绍二.png)
-
-
-
 
 # 1. 创建新项目
 
@@ -102,9 +98,9 @@
 
 ### 1.2.2 使用已有项目
 
+<h5>使用已有项目时，需启动使用已有项目按钮。</h5>
 使用已有项目，填入项目路径位置，完善服务地址，保存项目
 
-<h5>使用已有项目时，需启动使用已有项目按钮。</h5>
 ![使用已有项目二](..\images\addproject\使用已有项目二.png)
 
 | 属性         | 描述                                                         | 必填 | 注意点 |
@@ -115,20 +111,19 @@
 | 默认计划     | 设置个人的默认计划，具体可参照[计划]()                       | 是   |        |
 | 作者         | 用于标识开发代码的作者                                       | 是   |        |
 
-
 ## 1.3 后端项目
 
 打开后端项目
 
 ![后端项目目录](../images/addproject/后端项目目录.png)
 
-### 1.3.2 redis nacos minio的安装和maven的配置
+### 1.3.1 redis nacos minio的安装和maven的配置
 
 redis nacos minio在Neves_client\env安装的目录下面
 若使用平台创建的项目请解压redis nacos minio软件进行使用，nacos作为注册中心使用，minio作为文件服务器使用
 请启动redis, nacos, minio
 
-### 1.3.3 system-auth层
+### 1.3.2 system-auth层
 
 项目健全服务，包含菜单及其他权限管理、角色管理员、登录等等。
 
@@ -140,7 +135,7 @@ redis nacos minio在Neves_client\env安装的目录下面
 
 ![清空redisPassword](../images/addproject/清空redisPassword.png)
 
-### 1.3.4 system-business层
+### 1.3.3 system-business层
 
 业务层服务
 
@@ -148,15 +143,15 @@ redis nacos minio在Neves_client\env安装的目录下面
 
 ![配置数据库](../images/addproject/配置数据库二.png)
 
-### 1.3.5 system-common
+### 1.3.4 system-common
 
 包含一些公共工具，插件等服务
 
-### 1.3.6 system-file
+### 1.3.5 system-file
 
 文件的存储，上传下载的一些文件服务
 
-### 1.3.5 system-flow层
+### 1.3.6 system-flow层
 
 流程创建后的流程相关后台服务
 
@@ -165,13 +160,15 @@ redis nacos minio在Neves_client\env安装的目录下面
 ![配置数据库](../images/addproject/配置数据库三.png)
 ![配置数据库](../images/addproject/配置数据库四.png)
 
-### 1.3.6 system-gateway层
+### 1.3.7 system-gateway层
 
 服务网关功能服务，由前台请求到网关路由层，根据服务名称和接口请求路径自动转发到各自的服务接口
 
 ![项目数据源](../images/project/网关路由请求.png)
 
-## 1.3.7 启动后端项目
+## 1.4 启动项目
+
+### 1.4.1 启动后端项目
 
 后端项目启动五个服务文件：
 1. system-auth层：/src/main/java/com.system.auth.server/AuthApplication
@@ -184,7 +181,7 @@ redis nacos minio在Neves_client\env安装的目录下面
 
 4. system-gateway层：/src/main/java/com.system.getaway.server/AuthApplication
 
-## 1.3.8 启动前端项目
+### 1.4.2启动前端项目
 
 vscode打开前端项目并在终端运行启动运行指令
 
@@ -196,7 +193,7 @@ npm run dev
 
 ![前端项目运行](../images/addproject/前端项目运行.png)
 
-## 1.3.9 进入项目
+### 1.4.3 进入项目
 
 项目登录默认:
 账户：admin 
