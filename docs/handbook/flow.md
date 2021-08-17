@@ -2,15 +2,14 @@
 
 ​		基于flowable流程引擎封装的流程快速开发设计，该流程设计器是一块独立的流程业务操作系统，分为主页,开发，流程，监控，系统五大模块
 
-
 ## 一. 功能菜单介绍
-### 1.主页
+### 1. 主页
 
 主页主要是以统计图的形式展示了流程系统中流程业务的统计情况
 
 ![主页](..\images\flow\主页.png)
 
-### 2.开发
+### 2. 开发
 
 开发包含模型管理，数据源管理，所属系统管理，流程分类管理四哥模块
 
@@ -58,15 +57,15 @@
 
 待办管理是处理当前用户下待处理的流程业务
 
-### 3.5 已办管理
+#### 3.5 已办管理
 
 已办管理是查看当前用户下处理过的流程业务
 
-### 3.6 我发起的
+#### 3.6 我发起的
 
 查看我发起流程的状态信息
 
-### 3.7 委托设置
+#### 3.7 委托设置
 
 将任务委托给别人进行处理
 
@@ -403,20 +402,20 @@
 
 ![数据源管理](..\images\flow\数据源管理.png)
 
-### 4.所属系统管理
+### 4. 所属系统管理
 
 ​		管理流程所属系统分类
 
 ​		![所属系统管理](..\images\flow\所属系统管理.png)
 
-### 5.流程分类管理
+### 5. 流程分类管理
 
 ​		管理流程的分类
 
 ![流程分类管理](..\images\flow\流程分类管理.png)
 
 
-### 6.流程创建示例
+### 6. 流程创建示例
 
 #### 6.1 创建一个简单的流程
 
@@ -424,36 +423,79 @@
 
 #### 6.2 流程配置介绍
 
-1.流程信息
+##### 6.2.1. 流程信息
 
 主要介绍功能就是表单url  这个设置是用来项目中表单挂载流程的
 
-2.版本信息
+##### 6.2.2. 版本信息
 
 版本信息记录了流程图节点和配置修改的记录，里面可以更新，发布流程信息
 
-3.全局变量
+##### 6.2.3. 全局变量
 
 定义了流程中要使用的变量信息
 
-4.执行监听器
+##### 6.2.4. 执行监听器
 
 监听器可以选择在流程事件中使用groovy表达式去执行业务逻辑，实现采用接口调用的方式
 
 ![监听器](..\images\flow\监听器.png)
 
-5.通知配置
+接口调用请求示例
+
+```
+import org.apache.http.HttpResponse; 
+import org.apache.http.client.entity.UrlEncodedFormEntity; 
+import org.apache.http.client.methods.HttpPost; 
+import org.apache.http.impl.client.CloseableHttpClient; 
+import org.apache.http.impl.client.HttpClients; 
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.util.EntityUtils;
+import java.net.http.HttpClient; 
+import java.net.http.HttpRequest; 
+import java.util.List;
+import java.util.ArrayList;
+
+String url="http://127.0.0.1:6600/testhelentity/updateTest";
+
+HttpPost mPost = new HttpPost(url); 
+
+mPost.addHeader("Content-Type", "application/x-www-form-urlencoded"); 
+/**
+ * 组装需要发送的数据
+ */
+List<BasicNameValuePair> pairs = new ArrayList<BasicNameValuePair>(); 
+ pairs.add(new BasicNameValuePair("id",${id})); 
+mPost.setEntity(new UrlEncodedFormEntity(pairs, "UTF-8")); 
+/**
+ * 向服务器发送请求
+ */
+CloseableHttpClient mHttpClient = HttpClients.createDefault(); 
+
+HttpResponse response = mHttpClient.execute(mPost); 
+
+int res = response.getStatusLine().getStatusCode(); 
+
+if (res == 200) { 
+    return response; 
+}else{ 
+    throw(new Exception(response.toString())); 
+}
+
+```
+
+##### 6.2.5. 通知配置
 
 里面包含邮件和短信通知，目前短信通知功能暂时无法使用
 
 邮件通知选择接收人，抄送人，是选择人员后，自动去匹配用户管理里中人员的邮箱信息
 
 
-6.任务超时配置
+##### 6.2.6. 任务超时配置
 
 可以根据任务类型去设定超时时间，去进行自动审批，退回，自定义表达式去去指定业务逻辑
 
-7.全局按钮配置
+##### 6.2.7. 全局按钮配置
 
 介绍了整个流程中执行的按钮功能内容
 
@@ -465,7 +507,7 @@
 
 ![流程节点介绍](..\images\flow\流程节点介绍.png)
 
-1.多实例配置
+##### 6.3.1. 多实例配置
 
 启用多实例配置后，可以在一个节点上分配多个人员执行该任务
 
@@ -480,7 +522,6 @@
 ![多实例配置](..\images\flow\多实例配置.png)
 
 
-2.处理策略配置
-
+##### 6.3.2. 处理策略配置
 
 ![处理策略配置](..\images\flow\处理策略配置.png)
