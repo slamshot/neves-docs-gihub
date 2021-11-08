@@ -106,9 +106,22 @@
 ![新建节点](..\images\addproject\新建节点.png)
 ![新建节点二](..\images\addproject\新建节点二.png)
 
-此处设计过程中列表中均绑定所需字段名称
+1、此处设计过程中列表中均绑定所需字段名称
 
 ![列表设计](..\images\project\列表设计.png)
+
+2、设置列表需绑定的字段
+
+![列表绑定](..\images\project\配置表格.png)
+
+3、配置需要展示的列
+
+![列表展示](..\images\project\demo列表配置.png)
+
+4、配置查询表单所绑定的字段及标题(将input中的model和字段绑定)
+
+![列表展示](..\images\project\查询表单.png)
+
 
 #### 1.2.2.2新建表单页及设计内容
 
@@ -118,6 +131,8 @@
 #### 1.2.2.3新建流程表单、设计流程表单内容
 
 流程表单创建时模板选择流程表单
+
+注: 流程表单需增加一个输入框绑定id
 
 ![流程表单](..\images\addproject\流程表单.png)
 ![流程表单设计](..\images\addproject\流程表单设计.png)
@@ -162,7 +177,24 @@ import {detail,delet,create,update,list,pageList} from '@/api/test_student'
 
 ![数据模型](..\images\project\引入api.png)
 
-### 1.3.2修改请求列表方法，默认将getProjectList修改成接口js中的pageList
+### 1.3.2修改列表查询方法
+
+1、定义查询方法,调用查询接口
+```
+  1、在methods中定义该方法
+  getPersonData(){
+    pageList().then(response =>{
+      if(response.status == 1){
+        this.tableData = response.data;
+      }
+    })
+  }
+  2、在页面加载前调用查询方法
+  created(){
+    this.getPersonData();
+  }
+
+```
 
 ### 1.3.3 列表
 
@@ -175,75 +207,81 @@ import {detail,delet,create,update,list,pageList} from '@/api/test_student'
 添加事件，在method方法中添加add方法
 
 ```
- add() {
-      // 跳转至页面
-      this.$router.push({
-        name: 'form',
-        query: {
-          type: "add",
-          title:"添加",
-          data:{}
-        }
-      });
-    },
+1、引入需要打开的页面
+  import personForm from '@/views/functions/personForm';
+2、将组件挂载到components
+  components:{
+      personForm
+  },
+3、挂载到页面
+  <personForm ref="person"></personForm>
+4、在被打开的表单页面定义open方法
+  open(data) {
+      //类型
+      this.formStatus = data.type 
+      //标题
+      this.title = data.title
+      //数据
+      this.formData = data.formData
+      //是否打开页面
+      this.visible = data.visible
+  },
+5、在列表页面调用表单的open方法
+add(){
+  this.$refs.person.open(
+    {
+      type:"add",
+      title: "添加",
+      formData: {},
+      visible: true
+    }
+  );
+}
 ```
 
 编辑事件，在编辑按钮中绑定edit事件传入行数据，然后在method方法中添加edit方法
 
 ```
-  @click="edit(scope.row)"
-
-```
-
-```
- edit(row) {
-      this.$router.push({
-        name: "form",
-        query: {
-          type: "edit",
+  1、将当前行的数据传入更新方法
+    @click="edit(scope.row)"
+  2、将传入数据改变、其他同添加一样
+    edit(row){
+      this.$refs.person.open(
+        {
+          type:"edit",
           title: "编辑",
-          data: row,
-        },
-      });
-    },
-```
-
-表单接受参数：执行代码写入方法中，方法将由mounted生命周期方法触发
-
-```
-    getData(){
-      this.pageType = this.$route.query.type;
-      this.title = this.$route.query.title;
-      this.formData = this.$route.query.data
+          formData: row,
+          visible: true
+        }
+      );
     }
-
 ```
+
 
 填写表单数据或编辑表单数据并在表单内使用对应api传入对应所需参数,在method方法中写入保存事件方法
 
 ```
+1、引入api
+  import {detail,delet,create,update,list,pageList} from '@/api/test_student'
+2、将saveData方法中的save方法修改为create
 saveData() {
-      if (this.pageType == "add") {
-        create(this.formData).then((response) => {
-          if (response.status == 1) {
-            this.$message({
-              type: "success",
-              message: "保存成功",
-            });
-            this.closePage();
-          }
-        });
-      } else {
-        update(this.formData).then((response) => {
-          if (response.status == 1) {
-            this.$message({
-              type: "success",
-              message: "保存成功",
-            });
-            this.closePage();
-          }
-        });
-      }
+      this.$refs.form.validate(valid => {
+        if (valid) {
+            if (this.formStatus == "add") {
+                create(this.formData).then(response => {
+                    if (response.status == 1) {
+                        this.afterSaveData()
+                    }
+                })
+            } else {
+                update(this.formData).then(response => {
+                    if (response.status == 1) {
+                        this.afterSaveData()
+                    }
+                })
+            }
+        }
+    })
     },
 ```
 ![数据添加编辑](..\images\project\数据添加编辑.png)
@@ -301,9 +339,9 @@ del(row) {
 
 ![绑定字段](..\images\project\绑定搜索字段.png)
 
-拷贝搜索字段并在列表数据请求方法中更换对应api
+<!-- 拷贝搜索字段并在列表数据请求方法中更换对应api
 
-![更换列表api](..\images\project\更换列表api.png)
+![更换列表api](..\images\project\更换列表api.png) -->
 
 ### 1.3.4表单
 #### 1.3.4.1配置表单路由
@@ -404,9 +442,16 @@ del(row) {
 
 #### 1.5.2.2表单绑定流程
 
-添加标题字段(按个人需求添加)和新增formId字段
+添加标题字段并使用(按个人需求添加)
 
+ 1、新增title字段
+ 
 ![新增字段](..\images\project\新增字段.png)
+
+ 2、绑定title
+
+ ![绑定字段](..\images\project\绑定字段.png)
+
 
 绑定主键id
 
@@ -420,82 +465,50 @@ flowKey:模型流程key
 
 ![修改流程参数](..\images\project\修改流程参数.png)
 
-#### 1.5.2.3接收路由参数
+#### 1.5.2.3接收参数
 
-列表传入对应表单数据：表单页类型、表单标题(按个人需求)、表单id，由周期函数mounted触发接收路由参数getData()方法
+列表传入对应表单数据：表单页类型、表单标题(按个人需求)、表单id
 
-```
-  getData(){
-    this.pageType = this.$route.query.type;
-      this.title = this.$route.query.title;
-      this.formId = this.$route.query.id;
-  }
+  在流程表单引入所需要的js
+    
+    ```
+      import { create, update, detail } from "@/api/person.js";
+      import { createGuid } from "@/utils/index.js";
+    ```
 
-```
+  1、添加路由
+
+  ![添加路由](..\images\project\添加路由.png)
+
+  2、设置触发方法，打开流程表单页面
+  
+  ![调用方法](..\images\project\调用方法.png)
+  
+  3、接受传递的参数
+
+| 属性     | 描述                         |
+| -------- | ---------------------------- |
+| type   |  操作类型        |    
+| title | 打开弹窗的名称        |
+| businessKey    | 流程表单id (默认为空)  |
+
+  ![定义方法](..\images\project\定义open.png)
+
+  
+<!--   
 
 ![触发接收参数方法](..\images\project\触发接收参数方法.png)
 
-![接收路由参数](..\images\project\接收路由参数.png)
+![接收路由参数](..\images\project\接收路由参数.png) -->
 
 #### 1.5.2.4编写任务添加编辑逻辑
 
-编写表单类型逻辑
+调用流程方法，初始化所用到的参数
 
-```
-if (!this.processConfig.isStart) {
-      FlowProcess.comments().then((response) => {
-        this.comments = response.data;
-      });
-      this.getById(this.processConfig.businessKey);
-    }
-    if(this.$route.query.type=="edit"){
-          this.getById(this.formId);
-     }
-```
+![判断流程进入类型和操作](..\images\project\初始化流程参数.png)
 
-![判断流程进入类型和操作](..\images\project\判断流程进入类型和操作.png)
 
 流程添加提交和更新流程信息逻辑方法修改
-
-```
-execute(event) {
-      let target = event.currentTarget || event.target;
-      if (this.processConfig.isStart) {
-        if (this.$route.query.type == "add") {
-          this.add(target);
-        } else {
-          this.update(target);
-        }
-      } else {
-        this.update(target);
-      }
-    },
-    getById(id) {
-      detail(id).then((response) => {
-        this.formData = response.data;
-        this.processConfig.formData = this.formData;
-      });
-    },
-    add(target) {
-      this.formData.id = Date.now();
-      create(this.formData).then((response) => {
-        if (response.status == 1) {
-          let commandevent = target.getAttribute("commandevent");
-          this.commandEvent[commandevent]();
-          this.dialogClose();
-        }
-      });
-    },
-    update(target) {
-      update(this.formData).then((response) => {
-        if (response.status == 1) {
-          let commandevent = target.getAttribute("commandevent");
-          this.commandEvent[commandevent]();
-          this.dialogClose();
-        }
-      });
-    },
-```
 
 ![流程添加和编辑逻辑](..\images\project\流程添加和编辑逻辑.png)
 
